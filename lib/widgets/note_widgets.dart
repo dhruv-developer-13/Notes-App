@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/note_provider.dart';
 import '../models/note.dart';
+import '../providers/theme_provider.dart';
 
 // Title Input Widget
 class TitleInput extends StatelessWidget {
@@ -64,6 +65,8 @@ class PickColorButton extends StatelessWidget {
     return Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          foregroundColor: Provider.of<ThemeProvider>(context).isDarkMode ?  Colors.white :  Colors.black,
+          backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode ? const Color(0xFF001F47) : const Color(0xFF72A6CF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(11),
           ),
@@ -77,6 +80,34 @@ class PickColorButton extends StatelessWidget {
   }
 }
 
+//
+class SaveChangesButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const SaveChangesButton({super.key, required this.onPressed,}) ;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: Provider.of<ThemeProvider>(context).isDarkMode ?  Colors.white :  Colors.black,
+          backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode ? const Color(0xFF001F47) : const Color(0xFF72A6CF),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(11),
+          ),
+          side: const BorderSide(width: 1, color: Colors.black),
+          alignment: Alignment.center,
+        ),
+        onPressed: onPressed,
+        child: Text("Save Changes"),
+      ),
+    );
+  }
+}
+
+
+// Pick Image Button Widget
 class PickImageButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -87,6 +118,8 @@ class PickImageButton extends StatelessWidget {
     return Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          foregroundColor: Provider.of<ThemeProvider>(context).isDarkMode ?  Colors.white :  Colors.black,
+          backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode ? const Color(0xFF001F47) : const Color(0xFF72A6CF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(11),
           ),
@@ -120,6 +153,7 @@ class SaveNoteButton extends StatelessWidget {
     return Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode ? const Color(0xFF001F47) : const Color(0xFF72A6CF),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(11),
           ),

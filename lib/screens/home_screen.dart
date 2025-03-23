@@ -163,6 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
       floatingActionButton: FloatingActionButton(
+        foregroundColor: Provider.of<ThemeProvider>(context).isDarkMode ?  Colors.white :  Colors.black,
+        backgroundColor: Provider.of<ThemeProvider>(context).isDarkMode ? const Color.fromARGB(255, 23, 60, 182) : const Color.fromARGB(255, 184, 220, 247),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AddNoteScreen()));
         },

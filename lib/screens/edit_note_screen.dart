@@ -92,27 +92,16 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
                   SizedBox(width: 11),
 
                   // Save Changes Button
-                  Expanded(
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(11),
-                        ),
-                        side: BorderSide(width: 1, color: Colors.black),
-                        alignment:Alignment.center,
-                      ),
-                      onPressed: () {
+                   SaveChangesButton(
+                    onPressed: () {
                         final updatedNote = widget.note.copyWith(
                           title: titleController.text,
                           content: contentController.text,
                           colortheme: selectedColor.value,
                         );
-
                         noteProvider.updateNote(updatedNote);  // Update the note
                         Navigator.pop(context); // Return to previous screen
                       },
-                      child: Text("Save Changes"),
-                    ),
                   ),
                 ],
               ),
